@@ -36,6 +36,35 @@ build: imagem publicada -> programa Python -> gráfico no log
     v
 notificacao: horário + Sucesso (ou Falha, conforme resultado anterior)
 ```
+---
+
+## 📸 Evidências de Execução Prática
+
+Abaixo estão registadas as validações visuais do pipeline e da execução dos contentores Docker:
+
+<div align="center">
+  <h3>1. Pipeline Concluído com Sucesso no GitLab</h3>
+  <img src="./Pipeline-concluido-com-sucesso.png" alt="Pipeline concluído com sucesso" width="850px" />
+  <p><em>Execução das etapas com sucesso na esteira do GitLab CI/CD.</em></p>
+
+  <br />
+
+  <h3>2. Construção e Publicação da Imagem Docker</h3>
+  <img src="./Construção-e-publicacao-da-imagem-Docker.png" alt="Construção e publicação da imagem Docker" width="850px" />
+  <p><em>Build da imagem imutável e envio para o registo.</em></p>
+
+  <br />
+
+  <h3>3. Execução do Projeto Python</h3>
+  <img src="./Execução-do-projeto-Python.png" alt="Execução do projeto Python" width="850px" />
+  <p><em>Execução dos scripts e validação da lógica no ambiente de contentor.</em></p>
+
+  <br />
+
+  <h3>4. Notificação de Sucesso</h3>
+  <img src="./Notificação de sucesso.png" alt="Notificação de sucesso" width="850px" />
+  <p><em>Disparo automatizado do script de notificação de sucesso.</em></p>
+</div>
 
 ## Estrutura
 
