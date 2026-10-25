@@ -50,25 +50,25 @@ Abaixo estão registadas as validações visuais do pipeline e da execução dos
   <br />
 
   <h3>2. Construção e Publicação da Imagem Docker</h3>
-  <img src="./Construção-e-publicacao-da-imagem-Docker.png" alt="Construção e publicação da imagem Docker" width="850px" />
-  <p><em>Build da imagem imutável e envio para o registo.</em></p>
+  <img src="./docker-build.png" alt="Construção e publicação da imagem Docker" width="850px" />
+  <p><em>Build da imagem imutável e envio para o registo do Docker Hub.</em></p>
 
   <br />
 
   <h3>3. Execução do Projeto Python</h3>
-  <img src="./Execução-do-projeto-Python.png" alt="Execução do projeto Python" width="850px" />
+  <img src="./python-execucao.png" alt="Execução do projeto Python" width="850px" />
   <p><em>Execução dos scripts e validação da lógica no ambiente de contentor.</em></p>
 
   <br />
 
   <h3>4. Notificação de Sucesso</h3>
-  <img src="./Notificação de sucesso.png" alt="Notificação de sucesso" width="850px" />
-  <p><em>Disparo automatizado do script de notificação de sucesso.</em></p>
+  <img src="./notificacao-sucesso.png" alt="Notificação de sucesso" width="850px" />
+  <p><em>Disparo automatizado do script de notificação de sucesso via Shell.</em></p>
 </div>
 
 ## Estrutura
-
-- `.gitlab-ci.yml`: pipeline com Docker-in-Docker e TLS.
+- `.gitlab-c
+i.yml`: pipeline com Docker-in-Docker e TLS.
 - `Dockerfile`: base Ubuntu com Python 3 e pip, conforme laboratório.
 - `plot_simples_grafico.py`: gráfico em caracteres, entrada [4, 3, 2, 2, 5].
 - `relogio.py`: data e hora do ambiente.
