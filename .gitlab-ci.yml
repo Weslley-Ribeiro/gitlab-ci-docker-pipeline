@@ -1,0 +1,49 @@
+stages:
+  - pre-build
+  - build
+  - notificacao
+
+variables:
+  APP_IMAGE: "weslleyribeiro01/unopar-ci-cd"
+
+build-docker:
+  stage: pre-build
+  image: docker:24.0.5-cli
+  services:
+    - name: docker:24.0.5-dind
+      alias: docker
+  variables:
+    DOCKER_HOST: "tcp://docker:2376"
+    DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_TLS_VERIFY: "1"
+    DOCKER_CERT_PATH: "/certs/client"
+  before_script:
+    - docker info
+    - test -n "$DOCKERHUB_USERNAME"
+    - test -n "$DOCKERHUB_TOKEN"
+    - printf '%s' "$DOCKERHUB_TOKEN" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
+  script:
+    - docker build --pull -t "$APP_IMAGE:$CI_COMMIT_SHORT_SHA" .
+    - docker push "$APP_IMAGE:$CI_COMMIT_SHORT_SHA"
+
+build-project:
+  stage: build
+  image: "${APP_IMAGE}:${CI_COMMIT_SHORT_SHA}"
+  script:
+    - python3 plot_simples_grafico.py
+
+notificacao-sucesso:
+  stage: notificacao
+  image: "${APP_IMAGE}:${CI_COMMIT_SHORT_SHA}"
+  when: on_success
+  script:
+    - python3 relogio.py
+    - sh notificacaoSucesso.sh
+
+notificacao-falhas:
+  stage: notificacao
+  image: python:3.12-slim
+  when: on_failure
+  script:
+    - python3 relogio.py
+    - sh notificacaoFalha.sh
