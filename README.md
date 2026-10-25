@@ -76,7 +76,7 @@ Abaixo estão registadas as validações visuais do pipeline e da execução dos
 - `requirements.txt`: informa a ausência de dependências externas.
 - `LICENSE`: licença MIT para este repositório; preservar atribuições de materiais de terceiros.
 
-O código do gráfico preserva a lógica apresentada no laboratório, com formatação compactada na inicialização da matriz.
+O código do gráfico preserva a lógica apresentada no laboratório, com formatação compactada na inicialização da matriz
 
 ## Execução local
 
